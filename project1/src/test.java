@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.net.*;
 import java.util.*;
+import java.util.regex.*;
 
 public class test {
     public static void main(String argc[]) throws FileNotFoundException {
@@ -14,7 +15,7 @@ public class test {
 //
 //        while(in.hasNext())
 //            System.out.println(in.nextLine());
-        File f = new File("C:\\Users\\gsc\\Documents\\GitHub\\javatest\\project1\\data\\user.txt");
+//        File f = new File("/../data/user.txt");
 //        Scanner in = new Scanner(System.in);
 //        String name = in.nextLine();
 //        System.out.println(name);
@@ -22,9 +23,24 @@ public class test {
 //            name = in.nextLine();
 //            System.out.println(name);
 //        }
-        Scanner in = new Scanner(f);
+//        Scanner in = new Scanner(f);
+//        while (in.hasNext()) {
+//            System.out.println(in.nextLine());
+//        }
+//        System.out.println(System.getProperty("user.dir"));
+//        File dirc=new File("");
+//        System.out.println(dirc.getAbsolutePath());
+//        System.out.println(test.class.getResource("data").getPath());
+        String userPath=System.getProperty("user.dir");
+        String dataPath=userPath+"\\data\\user.txt";
+        File userTxt=new File(dataPath);
+        Scanner in=new Scanner(userTxt);
         while (in.hasNext()) {
-            System.out.println(in.nextLine());
+            String tempString=in.nextLine();
+            String matchString=".*user.*";
+            System.out.println(tempString);
+            System.out.println(Pattern.matches(matchString,tempString));
+
         }
     }
 }
