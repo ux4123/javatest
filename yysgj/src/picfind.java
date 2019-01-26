@@ -21,11 +21,11 @@ class MyPicFind {
             //swipe screen
             if (PicNum == 0) {
                 PicNum++;
-            } else if (PicNum < 3) {
+            } else if (PicNum < 2) {
                 pro = Runtime.getRuntime().exec("cmd /c " + adbpath + "\\adb.exe shell input swipe 2000 800 1000 800");
                 pro.waitFor();
                 PicNum++;
-            } else if (PicNum == 3) {
+            } else if (PicNum == 2) {
                 pro = Runtime.getRuntime().exec("cmd /c " + adbpath + "\\adb.exe shell input swipe 2000 800 1000 800");
                 pro.waitFor();
                 PicNum = 0;
