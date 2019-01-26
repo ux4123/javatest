@@ -53,12 +53,22 @@ class MyPicFind {
 
 public class picfind {
     public static void main(String[] args) {
-
-//        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        try {
-            System.out.println(TensorFlow.version());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            BufferedImage bi = ImageIO.read(new File("C:\\Users\\gsc\\Documents\\GitHub\\javatest\\yysgj\\114.png"));
+//            for (int i = 0; i < 10; i++) {
+//                for(int j=0;j<20;j++)
+//                ImageIO.write(bi.getSubimage(j*100,i*100,100,100),"jpg",new File("C:\\Users\\gsc\\Documents\\GitHub\\javatest\\yysgj\\pic\\"+i+"_"+j+"_0.jpg"));
+//            }
+//
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        //        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+//        try {
+//            System.out.println(TensorFlow.version());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 }
