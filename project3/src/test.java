@@ -9,11 +9,11 @@ import java.lang.*;
 
 class adbtest {
     private String adbpath;
-
+    private File pic;
 
     public adbtest(String path) {
         adbpath = path;
-
+        pic = new File(adbpath + "\\sc.png");
     }
 
     public int getPic() {
@@ -41,7 +41,7 @@ class adbtest {
             System.out.println("area is not completed\n");
             return false;
         } else {
-            File pic = new File(adbpath + "\\sc.png");
+
             BufferedImage bi = null;
             try {
                 bi = ImageIO.read(pic);
@@ -50,7 +50,7 @@ class adbtest {
             }
 //            System.out.println(bi.getHeight());
 //            System.out.println(bi.getWidth());
-            for (int i = area[0]; i < area[2]; i++) {
+            for (int i = area[0]; i < area[2]; i++)
                 for (int j = area[1]; j < area[3]; j++) {
                     int pix = bi.getRGB(i, j);
                     int r = (pix & 0xff0000) >> 16;
@@ -61,7 +61,6 @@ class adbtest {
                         return true;
                     }
                 }
-            }
 
 
             return false;
@@ -86,7 +85,7 @@ public class test {
 
     static public void main(String[] args) {
         try {
-            double xishu = 1;//1920 / 2280.0;
+            double xishu = 1920 / 2280.0;
             String adbpath = System.getProperty("user.dir");
             adbtest adb = new adbtest(adbpath);
             while (true) {
