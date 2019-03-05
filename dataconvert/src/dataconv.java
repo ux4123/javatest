@@ -68,6 +68,23 @@ class mydata {
         }
     }
 
+    double handlemath(byte[] temp) {
+        if (temp.length != 4) {
+            return 0;
+        } else {
+            long jisuan = 0;
+            double jisuan2 = 0;
+            jisuan = ((long) ((temp[0] << 16) + (temp[1] << 8) + (temp[2])));
+            if (jisuan > 0x7FFFFF) {
+                jisuan -= 0x800000;
+                jisuan2 = 2.50 - jisuan * 2.50 / 8388607.0;
+            } else {
+                jisuan2 = 2.50 + jisuan * 2.50 / 8388607.0;
+            }
+            return jisuan2;
+        }
+    }
+
     void filedebug(int a) {
         try {
             FileInputStream inputFile = new FileInputStream(FilePath);
@@ -115,6 +132,34 @@ class mydata {
             e.printStackTrace();
         }
     }
+
+    void Filecreate(int skiptime, int cnttime) {
+        try {
+            FileInputStream inputFile = new FileInputStream(FilePath);
+            FileWriter outFile1 = new FileWriter("C:\\Users\\216-2-19\\Desktop\\03051535 192ch" + "1.txt");
+            FileWriter outFile2 = new FileWriter("C:\\Users\\216-2-19\\Desktop\\03051535 192ch" + "2.txt");
+            inputFile.skip(skiptime);
+            byte[] temp = new byte[4];
+            inputFile.read(temp);
+            for (int i = 0; i < cnttime; i++) {
+                inputFile.read(temp);
+                //***************************************************************************************************************
+//                System.out.println((Math.abs((temp[0] << 16) + (temp[1] << 8) + temp[3]) / 8388607.5 - 1.0) * 3.3);
+//                System.out.println("end:****************\n");
+                //***************************************************************************************************************
+                if (i % 2 == 0) {
+                    outFile1.write(handlemath(temp) + "\n");
+                    outFile1.flush();
+                } else {
+                    outFile2.write(handlemath(temp) + "\n");
+                    outFile2.flush();
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 class drawsingle extends JFrame {
@@ -128,10 +173,11 @@ class drawsingle extends JFrame {
 public class dataconv {
     public static void main(String args[]) {
         if (args.length < 1) {
-            mydata ex = new mydata("C:\\Users\\gsc\\Desktop\\new\\48k10s.txt", 100);
+            mydata ex = new mydata("C:\\Users\\216-2-19\\Desktop\\03051535 192k.txt", 100);
 //            ex.Filecreate();
 //            drawsingle pic = new drawsingle();
-            ex.filedebug(1000);
+            ex.filedebug(10000);
+//            ex.Filecreate(1, 10000);
 //            String m = "11";
 //            System.out.println(Integer.valueOf(m));
 //            Pattern p = Pattern.compile("\\w+.txt");
