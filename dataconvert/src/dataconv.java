@@ -30,6 +30,10 @@ class mydata {
         return rname;
     }
 
+    String filename(int i) {
+        return new String(FilePath.replaceAll(".txt", "CH") + i + ".txt");
+    }
+
     void filedebug() {
         try {
             FileInputStream inputFile = new FileInputStream(FilePath);
@@ -74,7 +78,7 @@ class mydata {
         } else {
             long jisuan = 0;
             double jisuan2 = 0;
-            jisuan = ((long) ((temp[0] << 16) + (temp[1] << 8) + (temp[2])));
+            jisuan = ((long) ((temp[0] << 8) + (temp[1] << 16) + (temp[2])));
             if (jisuan > 0x7FFFFF) {
                 jisuan -= 0x800000;
                 jisuan2 = 2.50 - jisuan * 2.50 / 8388607.0;
@@ -136,8 +140,9 @@ class mydata {
     void Filecreate(int skiptime, int cnttime) {
         try {
             FileInputStream inputFile = new FileInputStream(FilePath);
-            FileWriter outFile1 = new FileWriter("C:\\Users\\216-2-19\\Desktop\\03051535 192ch" + "1.txt");
-            FileWriter outFile2 = new FileWriter("C:\\Users\\216-2-19\\Desktop\\03051535 192ch" + "2.txt");
+            FileWriter outFile1 = new FileWriter(filename(1));
+            FileWriter outFile2 = new FileWriter(filename(2));
+
             inputFile.skip(skiptime);
             byte[] temp = new byte[4];
             inputFile.read(temp);
@@ -173,11 +178,11 @@ class drawsingle extends JFrame {
 public class dataconv {
     public static void main(String args[]) {
         if (args.length < 1) {
-            mydata ex = new mydata("C:\\Users\\216-2-19\\Desktop\\03051535 192k.txt", 100);
+            mydata ex = new mydata("D:\\data\\发射波形_12.5Hz.txt", 100);
 //            ex.Filecreate();
 //            drawsingle pic = new drawsingle();
-            ex.filedebug(10000);
-//            ex.Filecreate(1, 10000);
+//            ex.filedebug(10000);
+            ex.Filecreate(3, 10000);
 //            String m = "11";
 //            System.out.println(Integer.valueOf(m));
 //            Pattern p = Pattern.compile("\\w+.txt");
