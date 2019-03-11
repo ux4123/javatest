@@ -30,6 +30,10 @@ class mydata {
         return rname;
     }
 
+    String filename(int i) {
+        return new String(FilePath.replaceAll(".txt", "CH") + i + ".txt");
+    }
+
     void filedebug() {
         try {
             FileInputStream inputFile = new FileInputStream(FilePath);
@@ -136,8 +140,9 @@ class mydata {
     void Filecreate(int skiptime, int cnttime) {
         try {
             FileInputStream inputFile = new FileInputStream(FilePath);
-            FileWriter outFile1 = new FileWriter(Filename(FilePath) + "1.txt");
-            FileWriter outFile2 = new FileWriter(Filename(FilePath) + "2.txt");
+            FileWriter outFile1 = new FileWriter(filename(1));
+            FileWriter outFile2 = new FileWriter(filename(2));
+
             inputFile.skip(skiptime);
             byte[] temp = new byte[4];
             inputFile.read(temp);
@@ -173,11 +178,11 @@ class drawsingle extends JFrame {
 public class dataconv {
     public static void main(String args[]) {
         if (args.length < 1) {
-            mydata ex = new mydata("C:\\Users\\gsc\\Desktop\\data\\03051535x192k.txt", 100);
+            mydata ex = new mydata("C:\\Users\\gsc\\Desktop\\发射波形_12.5Hz.txt", 100);
 //            ex.Filecreate();
 //            drawsingle pic = new drawsingle();
 //            ex.filedebug(10000);
-            ex.Filecreate(1, 10000);
+            ex.Filecreate(3, 10000);
 //            String m = "11";
 //            System.out.println(Integer.valueOf(m));
 //            Pattern p = Pattern.compile("\\w+.txt");
