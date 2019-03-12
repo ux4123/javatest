@@ -30,6 +30,10 @@ class mydata {
         return rname;
     }
 
+    String filename(int i) {
+        return new String(FilePath.replaceAll(".txt", "CH") + i + ".txt");
+    }
+
     void filedebug() {
         try {
             FileInputStream inputFile = new FileInputStream(FilePath);
@@ -74,12 +78,14 @@ class mydata {
         } else {
             long jisuan = 0;
             double jisuan2 = 0;
-            jisuan = ((long) ((temp[0] << 8) + (temp[1] << 16) + (temp[2])));
-            if (jisuan > 0x7FFFFF) {
-                jisuan -= 0x800000;
-                jisuan2 = 2.50 - jisuan * 2.50 / 8388607.0;
+            jisuan = ((long) ((long) (temp[0] << 8) + (long) (temp[1] << 16) + (long) (temp[3])));
+            if (jisuan > 8388607) {
+                jisuan -= 16777215;
+//                jisuan2 = 2.50 - jisuan * 2.50 / 8388607.0;
+                jisuan2 = jisuan * 2.50 * 2.50 / 2.32 / 8388607.0;
             } else {
-                jisuan2 = 2.50 + jisuan * 2.50 / 8388607.0;
+//                jisuan2 = 2.50 + jisuan * 2.50 / 8388607.0;
+                jisuan2 = jisuan * 2.50 * 2.50 / 2.32 / 8388607.0;
             }
             return jisuan2;
         }
@@ -136,8 +142,9 @@ class mydata {
     void Filecreate(int skiptime, int cnttime) {
         try {
             FileInputStream inputFile = new FileInputStream(FilePath);
-            FileWriter outFile1 = new FileWriter(Filename(FilePath) + "1.txt");
-            FileWriter outFile2 = new FileWriter(Filename(FilePath) + "2.txt");
+            FileWriter outFile1 = new FileWriter(filename(1));
+            FileWriter outFile2 = new FileWriter(filename(2));
+            System.out.println(filename(1) + " and " + filename(2));
             inputFile.skip(skiptime);
             byte[] temp = new byte[4];
             inputFile.read(temp);
@@ -160,6 +167,43 @@ class mydata {
             e.printStackTrace();
         }
     }
+
+    void Filecreate(int skiptime) {
+        try {
+            FileInputStream inputFile = new FileInputStream(FilePath);
+            FileWriter outFile1 = new FileWriter(filename(1));
+            FileWriter outFile2 = new FileWriter(filename(2));
+            FileWriter outFile3 = new FileWriter(filename(0));
+
+            System.out.println(filename(1) + " and " + filename(2));
+
+            inputFile.skip(skiptime);
+            byte[] temp = new byte[4];
+            long filesize = inputFile.available();
+            int i = 0;
+            double num = 0;
+            while (filesize != 0) {
+                filesize -= 4;
+                inputFile.read(temp);
+                if (i % 2 == 0) {
+                    num = handlemath(temp);
+                    outFile1.write(num + "\n");
+                    outFile1.flush();
+                } else {
+                    outFile2.write(handlemath(temp) + "\n");
+                    outFile2.flush();
+
+//                    num += handlemath(temp);
+//                    outFile3.write(num + "\n");
+//                    outFile3.flush();
+                }
+                i++;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 class drawsingle extends JFrame {
@@ -173,11 +217,11 @@ class drawsingle extends JFrame {
 public class dataconv {
     public static void main(String args[]) {
         if (args.length < 1) {
-            mydata ex = new mydata("C:\\Users\\gsc\\Desktop\\data\\03051535x192k.txt", 100);
+            mydata ex = new mydata("C:\\Users\\216-2-19\\Desktop\\L00P00.txt", 100);
 //            ex.Filecreate();
 //            drawsingle pic = new drawsingle();
 //            ex.filedebug(10000);
-            ex.Filecreate(1, 10000);
+            ex.Filecreate(0);
 //            String m = "11";
 //            System.out.println(Integer.valueOf(m));
 //            Pattern p = Pattern.compile("\\w+.txt");
