@@ -37,7 +37,7 @@ public class test {
         Scanner in=new Scanner(userTxt);
         while (in.hasNext()) {
             String tempString=in.nextLine();
-            String matchString=".*user.*";
+            String matchString=".*(u|U)[a-z]*[A-Z]*.*";
             System.out.println(tempString);
             System.out.println(Pattern.matches(matchString,tempString));
 

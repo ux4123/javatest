@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3979133c-ed45-47b6-a0d5-85df5f0e4a44" name="Default Changelist" comment="" />
+    <list default="true" id="3979133c-ed45-47b6-a0d5-85df5f0e4a44" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="39" column="42" lean-forward="true" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+            <state relative-caret-position="423">
+              <caret line="41" column="38" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,7 +45,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1225" />
@@ -56,6 +58,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -90,11 +93,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545111269431" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545293315043" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -141,9 +143,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26599148" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26865673" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -152,7 +154,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30911064" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30911064" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -188,8 +190,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="39" column="42" lean-forward="true" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+        <state relative-caret-position="423">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
