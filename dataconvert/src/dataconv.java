@@ -300,7 +300,7 @@ class drawsingle extends JFrame {
 public class dataconv {
     public static void main(String args[]) {
         if (args.length < 1) {
-            mydata ex = new mydata("F:\\block_1G.bin", 100);
+            mydata ex = new mydata("C:\\Users\\gsc\\Desktop\\block_1G.bin", 100);
             ex.ad7764(1500);
 //            ex.filedebug(100);
 //            ex.akm5394(1000);
