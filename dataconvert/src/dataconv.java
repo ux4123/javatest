@@ -215,7 +215,7 @@ class mydata {
         }
 
         jisuan = ((long) ((long) (temp0 << 16) + (long) (temp[1] << 8) + (long) (temp[2])));
-        System.out.println(jisuan);
+//        System.out.println(jisuan);
         if (jisuan > 8388607) {
             jisuan -= 16777215;
 //                jisuan2 = 2.50 - jisuan * 2.50 / 8388607.0;
@@ -241,7 +241,7 @@ class mydata {
                     inputFile.read(cal);
                     num -= 3;
                     double res = mathhandle(cal);
-//                    System.out.println(res);
+                    System.out.println(res);
                     outFile.write(res + "\n");
                     outFile.flush();
                 }
@@ -300,8 +300,8 @@ class drawsingle extends JFrame {
 public class dataconv {
     public static void main(String args[]) {
         if (args.length < 1) {
-            mydata ex = new mydata("C:\\Users\\gsc\\Desktop\\block_1G.bin", 100);
-            ex.ad7764(1500);
+            mydata ex = new mydata("F:\\电脑备份\\波形\\10k200mRamp.bin", 100);
+            ex.ad7764(100000);
 //            ex.filedebug(100);
 //            ex.akm5394(1000);
 //            ex.Filecreate();
